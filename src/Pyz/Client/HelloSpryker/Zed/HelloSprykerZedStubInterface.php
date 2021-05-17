@@ -1,12 +1,11 @@
 <?php
 
 
-namespace Pyz\Zed\HelloSpryker\Business\Reverser;
-
+namespace Pyz\Client\HelloSpryker\Zed;
 
 use Generated\Shared\Transfer\HelloSprykerTransfer;
 
-interface StringReverserInterface
+interface HelloSprykerZedStubInterface
 {
     /**
      * @param HelloSprykerTransfer $helloSprykerTransfer

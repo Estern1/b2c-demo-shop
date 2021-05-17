@@ -4,15 +4,20 @@
 namespace Pyz\Zed\HelloSpryker\Business\Reverser;
 
 
+use Generated\Shared\Transfer\HelloSprykerTransfer;
+
 class StringReverser implements StringReverserInterface
 {
     /**
-     * @param string $stringToReverse
+     * @param HelloSprykerTransfer $stringToReverse
      *
-     * @return string
+     * @return HelloSprykerTransfer
      */
-    public function reverseString(string $stringToReverse): string
+    public function reverseString(HelloSprykerTransfer $helloSprykerTransfer): HelloSprykerTransfer
     {
-        return strrev($stringToReverse);
+        $reversedString = strrev($helloSprykerTransfer->getOriginalString());
+        $helloSprykerTransfer->setReversedString($reversedString);
+
+        return $helloSprykerTransfer;
     }
 }

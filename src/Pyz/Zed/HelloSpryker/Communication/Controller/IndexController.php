@@ -5,6 +5,7 @@ namespace Pyz\Zed\HelloSpryker\Communication\Controller;
 
 use Spryker\Zed\Kernel\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Generated\Shared\Transfer\HelloSprykerTransfer;
 
 /**
  * @method \Pyz\Zed\HelloSpryker\Business\HelloSprykerFacadeInterface getFacade()
@@ -18,9 +19,17 @@ class IndexController extends AbstractController
      */
     public function indexAction(Request $request): array
     {
-        $originalString = "Hello Spryker!";
-        $reversedString = $this->getFacade()->reverseString($originalString);
+        $helloSprykerTransfer = new HelloSprykerTransfer();
+        $helloSprykerTransfer->setOriginalString("Hello Spryker!");
 
-        return ['string' => $reversedString];
+        $helloSprykerTransfer = $this->getFacade()->reverseString($helloSprykerTransfer);
+
+        // Create new row in DB.
+        $helloSprykerTransfer = $this->getFacade()->createHelloSprykerEntity($helloSprykerTransfer);
+
+        // Retrieve data from DB.
+        $helloSprykerTransfer = $this->getFacade()->findHelloSpryker($helloSprykerTransfer);
+
+        return ['string' => $helloSprykerTransfer->getReversedString()];
     }
 }
