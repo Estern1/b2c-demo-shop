@@ -5,6 +5,7 @@ namespace Pyz\Zed\HelloSpryker\Business;
 
 use Spryker\Zed\Kernel\Business\AbstractFacade;
 use Generated\Shared\Transfer\HelloSprykerTransfer;
+use Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException;
 
 /**
  * @method \Pyz\Zed\HelloSpryker\Business\HelloSprykerBusinessFactory getFactory()
@@ -16,16 +17,18 @@ class HelloSprykerFacade extends AbstractFacade implements HelloSprykerFacadeInt
     /**
      * {@inheritDoc}
      *
-     * @api
-     *
      * @param HelloSprykerTransfer $helloSprykerTransfer
      *
      * @return HelloSprykerTransfer
+     * @throws ContainerKeyNotFoundException
+     * @api
+     *
      */
     public function reverseString(HelloSprykerTransfer $helloSprykerTransfer): HelloSprykerTransfer
     {
         return $this->getFactory()
-            ->createStringReverser()
+//            ->createStringReverser()
+            ->getStringReverserFacade()
             ->reverseString($helloSprykerTransfer);
     }
 

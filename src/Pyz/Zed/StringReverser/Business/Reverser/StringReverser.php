@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Pyz\Zed\HelloSpryker\Business\Reverser;
+namespace Pyz\Zed\StringReverser\Business\Reverser;
 
 
 use Generated\Shared\Transfer\HelloSprykerTransfer;
@@ -9,8 +9,7 @@ use Generated\Shared\Transfer\HelloSprykerTransfer;
 class StringReverser implements StringReverserInterface
 {
     /**
-     * @param HelloSprykerTransfer $stringToReverse
-     *
+     * @param HelloSprykerTransfer $helloSprykerTransfer
      * @return HelloSprykerTransfer
      */
     public function reverseString(HelloSprykerTransfer $helloSprykerTransfer): HelloSprykerTransfer
