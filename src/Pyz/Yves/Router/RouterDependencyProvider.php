@@ -52,6 +52,7 @@ use SprykerShop\Yves\StorageRouter\Plugin\Router\StorageRouterPlugin;
 use SprykerShop\Yves\WishlistPage\Plugin\Router\WishlistPageRouteProviderPlugin;
 use Pyz\Yves\HelloWorld\Plugin\Router\HelloWorldRouteProviderPlugin;
 use Pyz\Yves\HelloSpryker\Plugin\Router\HelloSprykerRouteProviderPlugin;
+use Pyz\Yves\PersonalizedProduct\Plugin\Router\PersonalizedProductRouteProviderPlugin;
 
 class RouterDependencyProvider extends SprykerRouterDependencyProvider
 {
@@ -110,6 +111,7 @@ class RouterDependencyProvider extends SprykerRouterDependencyProvider
             new OrderCancelWidgetRouteProviderPlugin(),
             new HelloWorldRouteProviderPlugin(),
             new HelloSprykerRouteProviderPlugin(),
+            new PersonalizedProductRouteProviderPlugin(),
         ];
     }
 
